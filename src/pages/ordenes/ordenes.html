@@ -1,0 +1,32 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Ordenes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+<div text-center *ngIf="_cs.ordenes.length === 0" class="carrito_vacio">
+   <br> Aún no tiene ordenes realizadas.
+</div>
+
+<div *ngIf="_cs.ordenes.length != 0">
+<ion-list >
+    <button ion-item
+            *ngFor="let orden of _cs.ordenes"
+            [navPush]="ordenesDetalle"
+            [navParams]="{ orden: orden }">
+      <strong>Número de orden:</strong>
+      {{ orden.id }}
+    </button>
+  </ion-list>
+</div>
+
+
+
+</ion-content>
